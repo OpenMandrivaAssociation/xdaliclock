@@ -1,20 +1,19 @@
 %define	name	xdaliclock
-%define	version	2.23
-%define	release	1mdk
-%define	Summary	A clock for the X Window System
+%define	version	2.24
+%define	release	%mkrel 1
 
-Summary:	%{Summary}
+Summary:	A melting digital clock
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
 
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel libxext-devel libxt-devel
 License:	MIT
 
-Source0:	http://www.jwz.org/xdaliclock/xdaliclock-%{version}.tar.bz2
-Patch0:		%{name}-shape-cycle.patch.bz2
+Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-shape-cycle.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -34,7 +33,7 @@ a melting special effect, for your system.
 
 %build
 cd X11
-CFLAGS="$RPM_OPT_FLAGS" ./configure	--prefix=%{_prefix}/X11R6 \
+CFLAGS="$RPM_OPT_FLAGS" ./configure	--prefix=%{_prefix} \
 				--build=%{_target_platform}
 %make
 
@@ -42,18 +41,21 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure	--prefix=%{_prefix}/X11R6 \
 rm -rf $RPM_BUILD_ROOT
 
 cd X11
-install -d -m 0755 %buildroot/%_prefix/X11R6/{bin,man/man1}
-make prefix=%buildroot/%_prefix/X11R6 install
+install -d -m 0755 %buildroot{%_bindir,%_mandir/man1}
+make prefix=%buildroot/%_prefix install
 
-install -d $RPM_BUILD_ROOT%{_menudir}
-cat <<EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): \
-        needs="X11" \
-        section="Amusement/Toys" \
-        title="Xdaliclock" \
-        longtitle="%{Summary}" \
-        command="%{name}" \
-        icon="toys_section.png"
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Xdaliclock
+Comment=A melting digital clock
+Exec=%{_bindir}/%{name} 
+Icon=toys_section.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;Clock;Amusement;X-MandrivaLinux-MoreApplications-Games-Toys;
 EOF
 
 %post
@@ -67,6 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%{_prefix}/X11R6/bin/%{name}
-%{_prefix}/X11R6/man/man1/%{name}.1*
-%{_menudir}/%{name}
+%{_bindir}/%{name}
+%{_mandir}/man1/%{name}.1*
+%{_datadir}/applications/mandriva-%{name}.desktop
