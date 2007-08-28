@@ -47,7 +47,6 @@ make prefix=%buildroot/%_prefix install
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Xdaliclock
 Comment=A melting digital clock
 Exec=%{_bindir}/%{name} 
