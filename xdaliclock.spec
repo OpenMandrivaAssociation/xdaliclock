@@ -50,7 +50,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 Name=Xdaliclock
 Comment=A melting digital clock
 Exec=%{_bindir}/%{name} 
-Icon=toys_section.png
+Icon=toys_section
 Terminal=false
 Type=Application
 StartupNotify=true
