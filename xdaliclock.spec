@@ -15,6 +15,7 @@ License:	MIT
 Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-shape-cycle.patch
 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The xdaliclock program displays a digital clock, with digits that merge
