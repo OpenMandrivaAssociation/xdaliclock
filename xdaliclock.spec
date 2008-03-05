@@ -1,11 +1,10 @@
 %define	name	xdaliclock
 %define	version	2.24
-%define	release	%mkrel 1
 
 Summary:	A melting digital clock
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 2
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
 
