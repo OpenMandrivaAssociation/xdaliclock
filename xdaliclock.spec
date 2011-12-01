@@ -37,7 +37,7 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure	--prefix=%{_prefix} \
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 cd X11
 install -d -m 0755 %buildroot{%_bindir,%_mandir/man1}
@@ -67,7 +67,7 @@ EOF
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
