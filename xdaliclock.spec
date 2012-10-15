@@ -1,5 +1,5 @@
 %define	name	xdaliclock
-%define	version	2.24
+%define	version	2.37
 
 Summary:	A melting digital clock
 Name:		%{name}
@@ -8,13 +8,14 @@ Release:	%mkrel 5
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
 
-BuildRequires:	libx11-devel libxext-devel libxt-devel
+BuildRequires:	pkgconfig(xt)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(x11)
 License:	MIT
 
-Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.bz2
+Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
 Patch0:		%{name}-shape-cycle.patch
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The xdaliclock program displays a digital clock, with digits that merge
@@ -32,13 +33,11 @@ a melting special effect, for your system.
 
 %build
 cd X11
-CFLAGS="$RPM_OPT_FLAGS" ./configure	--prefix=%{_prefix} \
+CFLAGS="$RPM_OPT_FLAGS" ./configure --libdir=%{_libdir}	--prefix=%{_prefix} \
 				--build=%{_target_platform}
 %make
 
 %install
-rm -rf %{buildroot}
-
 cd X11
 install -d -m 0755 %buildroot{%_bindir,%_mandir/man1}
 make prefix=%buildroot/%_prefix install
@@ -56,21 +55,7 @@ StartupNotify=true
 Categories=Utility;Clock;Amusement;X-MandrivaLinux-MoreApplications-Games-Toys;
 EOF
 
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/applications/mandriva-%{name}.desktop
