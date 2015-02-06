@@ -4,7 +4,7 @@
 Summary:	A melting digital clock
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 5
+Release:	6
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
 
