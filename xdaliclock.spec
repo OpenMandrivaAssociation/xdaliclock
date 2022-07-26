@@ -1,21 +1,17 @@
-%define	name	xdaliclock
-%define	version	2.37
 
 Summary:	A melting digital clock
-Name:		%{name}
-Version:	%{version}
-Release:	6
+Name:		xdaliclock
+Version:	2.44
+Release:	1
+License:	MIT
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
+Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
+Patch0:		%{name}-shape-cycle.patch
 
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(x11)
-License:	MIT
-
-Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
-Patch0:		%{name}-shape-cycle.patch
-
 
 %description
 The xdaliclock program displays a digital clock, with digits that merge
