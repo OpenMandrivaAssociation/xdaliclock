@@ -12,6 +12,7 @@ Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(gtk+-3.0)
 
 %description
 The xdaliclock program displays a digital clock, with digits that merge
