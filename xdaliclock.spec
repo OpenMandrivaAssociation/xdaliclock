@@ -56,3 +56,7 @@ EOF
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/xdaliclock.desktop
+%{_datadir}/glib-2.0/schemas/gschemas.compiled
+%{_datadir}/glib-2.0/schemas/org.jwz.xdaliclock.gschema.xml
+%{_datadir}/pixmaps/xdaliclock.png
