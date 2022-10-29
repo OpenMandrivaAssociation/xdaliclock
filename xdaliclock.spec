@@ -7,7 +7,7 @@ License:	MIT
 Group:		Toys
 URL:		http://www.jwz.org/xdaliclock/
 Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
-Patch0:		%{name}-shape-cycle.patch
+#Patch0:		%{name}-shape-cycle.patch
 
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xext)
@@ -25,7 +25,7 @@ a melting special effect, for your system.
 
 %prep
 %setup -q
-%patch0 -p1
+#patch0 -p1
 
 %build
 cd X11
