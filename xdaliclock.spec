@@ -1,7 +1,7 @@
 
 Summary:	A melting digital clock
 Name:		xdaliclock
-Version:	2.44
+Version:	2.47
 Release:	1
 License:	MIT
 Group:		Toys
