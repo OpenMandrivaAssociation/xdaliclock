@@ -5,7 +5,7 @@ Version:	2.48
 Release:	1
 License:	MIT
 Group:		Toys
-URL:		http://www.jwz.org/xdaliclock/
+URL:		https://www.jwz.org/xdaliclock/
 Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
 #Patch0:		%{name}-shape-cycle.patch
 
