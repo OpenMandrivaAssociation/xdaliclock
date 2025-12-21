@@ -9,6 +9,7 @@ URL:		https://www.jwz.org/xdaliclock/
 Source0:	http://www.jwz.org/xdaliclock/%{name}-%{version}.tar.gz
 #Patch0:		%{name}-shape-cycle.patch
 
+BuildRequires:	make
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(x11)
